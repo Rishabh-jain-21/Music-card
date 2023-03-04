@@ -33,7 +33,7 @@ body {
 
 .main-continer {
   background-color: rgb(255, 254, 255);
-  width: 340px;
+  width: 25vw;
   height: 75vh;
   border: 2px solid black;
   border-radius: 10px;
@@ -119,4 +119,36 @@ h3 {
 .bottom-container img {
   margin-top: 30px;
   height: 25px;
+}
+
+/* Responsive ness */
+
+@media screen and (max-width: 1700px) {
+  .main-continer {
+    background-color: rgb(255, 254, 255);
+    width: 25vw;
+    height: 75vh;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .main-continer {
+    background-color: rgb(255, 254, 255);
+    width: 60vw;
+    height: 75vh;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-continer {
+    background-color: rgb(255, 254, 255);
+    width: 90vw;
+    height: 75vh;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
 }
