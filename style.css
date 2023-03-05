@@ -33,7 +33,7 @@ body {
 
 .main-continer {
   background-color: rgb(255, 254, 255);
-  width: 25vw;
+  width: 22vw;
   height: 75vh;
   border: 2px solid black;
   border-radius: 10px;
@@ -123,7 +123,27 @@ h3 {
 
 /* Responsive ness */
 
+@media screen and (max-width: 2000px) {
+  .main-continer {
+    background-color: rgb(255, 254, 255);
+    width: 22vw;
+    height: 75vh;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+}
+
 @media screen and (max-width: 1700px) {
+  .main-continer {
+    background-color: rgb(255, 254, 255);
+    width: 22vw;
+    height: 75vh;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 1500px) {
   .main-continer {
     background-color: rgb(255, 254, 255);
     width: 25vw;
@@ -148,6 +168,16 @@ h3 {
     background-color: rgb(255, 254, 255);
     width: 90vw;
     height: 75vh;
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+}
+
+/* height responsiveness */
+@media screen and (max-height: 600px) {
+  .main-continer {
+    background-color: rgb(255, 254, 255);
+    height: 100vh;
     border: 2px solid black;
     border-radius: 10px;
   }
