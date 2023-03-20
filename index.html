@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Images/music-notes.png">
     <title>Music Card</title>
 </head>
 
@@ -19,29 +20,30 @@
             </div>
             <div class="mid-container mid-container-flexi">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlxQbQmhA3k8PsJn3Ia3Yl361WjXAQvY73UKziIU1x1a76q8wCR1VbKk-BMdWGSxNxc-Y&usqp=CAU"
-                    alt="">
+                    alt="" class="Banner">
                 <div class="mid-container-flexi">
                     <h2>Name</h2>
+                    <audio id="my-music" src="\songs\1.mp3"></audio>
                     <h3>Artist NAME</h3>
                 </div>
                 <div class="slider">
                     <input type="range" min="1" max="100" value="0">
                     <div class="flexi-flexi">
-                        <p>00:00</p>
-                        <p>04:49</p>
+                        <span>00:00</span>
+                        <span>04:49</span>
                     </div>
                 </div>
             </div>
             <div class="bottom-container flexi-flexi">
                 <img src="Images/shuffle.png" alt="">
                 <img src="Images/previous.png" alt="">
-                <img src="Images/play-buttton.png" alt="">
-                <img src="Images/next.png" alt="">
+                <img id="play_buttton" src="Images/play-buttton.png" alt="">
+                <img id="next_button" src="Images/next.png" alt="">
                 <img src="Images/music.png" alt="">
-
             </div>
         </div>
     </div>
+    <script src="index.js"></script>
 </body>
 
 </html>
