@@ -70,23 +70,22 @@ firstTime();
 
 
 next.addEventListener('click', () => {
+    index++;
     index = index % music_api.length;
     artistName.innerText = music_api[index].title;
     musicTitle.innerText = music_api[index].artist;
     banner[0].src = music_api[index].img;
-    index++;
+    console.log(index);
 })
 
 previous.addEventListener('click', () => {
-
+    index--;
     //extra case
     if (index < 0) {
-        index = index.length - 1;
+        index = music_api.length - 1;
     }
-
-    index = index % music_api.length;
     artistName.innerText = music_api[index].title;
     musicTitle.innerText = music_api[index].artist;
     banner[0].src = music_api[index].img;
-    index--;
+    console.log(index);
 })
