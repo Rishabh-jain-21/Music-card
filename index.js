@@ -5,7 +5,9 @@ const myMusic = document.getElementById('my-music');
 const artistName = document.getElementById('artist_name');
 const musicTitle = document.getElementById('music_title');
 const previous = document.getElementById('previous_button');
-
+const progressBar = document.querySelector('#progress-bar');
+const songFullTime = document.querySelector('#song_full_time');
+const songCurrentTime = document.querySelector('#song_current_time');
 
 const music_api = [
     {
@@ -35,10 +37,6 @@ const music_api = [
     }
 ]
 
-
-
-
-
 play.addEventListener('click', changePlay);
 
 function changePlay() {
@@ -46,11 +44,9 @@ function changePlay() {
     str = "Images" + str.split("Images")[1];
     if (str == "Images/play-buttton.png") {
         play.src = "Images/pause.png"
-        console.log(myMusic);
         myMusic.play();
     } else {
         play.src = "Images/play-buttton.png"
-        console.log(myMusic);
         myMusic.pause();
     }
 }
@@ -60,14 +56,11 @@ let index = 0;
 
 // calling the element to show it first time
 let firstTime = () => {
-    console.log("fist function");
     artistName.innerText = music_api[index].title;
     musicTitle.innerText = music_api[index].artist;
     banner[0].src = music_api[index].img;
 }
 firstTime();
-
-
 
 next.addEventListener('click', () => {
     index++;
@@ -75,7 +68,6 @@ next.addEventListener('click', () => {
     artistName.innerText = music_api[index].title;
     musicTitle.innerText = music_api[index].artist;
     banner[0].src = music_api[index].img;
-    console.log(index);
 })
 
 previous.addEventListener('click', () => {
@@ -87,5 +79,35 @@ previous.addEventListener('click', () => {
     artistName.innerText = music_api[index].title;
     musicTitle.innerText = music_api[index].artist;
     banner[0].src = music_api[index].img;
-    console.log(index);
 })
+
+// progress bar update function
+/* when ever our music is going to change it will update the following function  */
+
+// fat arrow function enjoying ES6 features 😍
+let minute = "00";
+let seconds = "00";
+myMusic.currentTime = 210;
+const updateProgressBar = () => {
+    progressBar.value = parseInt((myMusic.currentTime / myMusic.duration) * 100);
+
+    // upadate song current time
+    if (parseInt(myMusic.currentTime) < 60) {
+        songCurrentTime.innerText = parseInt(((myMusic.currentTime) / 60) / 10) + "" + parseInt(((myMusic.currentTime) / 60) % 10) + ":" + parseInt((myMusic.currentTime) / 10) + parseInt((myMusic.currentTime) % 10);
+    }
+    else {
+        songCurrentTime.innerText = parseInt(((myMusic.currentTime) / 60) / 10) + "" + parseInt(((myMusic.currentTime) / 60) % 10) + ":" + parseInt(((myMusic.currentTime) % 60) / 10) + parseInt(((myMusic.currentTime) % 60) % 10);
+        console.log(songCurrentTime.innerText);
+    }
+
+    // the below will be the song full time
+    songFullTime.innerText = parseInt(((myMusic.duration) / 60) / 10) + "" + parseInt(((myMusic.duration) / 60) % 10) + ":" + parseInt(((myMusic.duration) % 60) / 10) + parseInt(((myMusic.duration) % 60) % 10);
+    console.log(myMusic.duration)
+
+    // if the current time equals to the full time than change icon
+    if (myMusic.currentTime === myMusic.duration)
+        changePlay();
+
+}
+
+myMusic.addEventListener('timeupdate', updateProgressBar);
