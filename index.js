@@ -87,7 +87,6 @@ previous.addEventListener('click', () => {
 // fat arrow function enjoying ES6 features 😍
 let minute = "00";
 let seconds = "00";
-myMusic.currentTime = 210;
 const updateProgressBar = () => {
     progressBar.value = parseInt((myMusic.currentTime / myMusic.duration) * 100);
 
@@ -102,7 +101,6 @@ const updateProgressBar = () => {
 
     // the below will be the song full time
     songFullTime.innerText = parseInt(((myMusic.duration) / 60) / 10) + "" + parseInt(((myMusic.duration) / 60) % 10) + ":" + parseInt(((myMusic.duration) % 60) / 10) + parseInt(((myMusic.duration) % 60) % 10);
-    console.log(myMusic.duration)
 
     // if the current time equals to the full time than change icon
     if (myMusic.currentTime === myMusic.duration)
@@ -110,4 +108,14 @@ const updateProgressBar = () => {
 
 }
 
+// change progress bar when the music is running/ timeupdating
 myMusic.addEventListener('timeupdate', updateProgressBar);
+
+
+// change the song time as of the change in the progresbar 
+const updateMusicTime = () => {
+    myMusic.currentTime = (myMusic.duration * progressBar.value) / 100;
+}
+
+
+progressBar.addEventListener('click', updateMusicTime);
